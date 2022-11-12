@@ -1,0 +1,16 @@
+{
+  "name": "my-chart-room",
+  "version": "2.4.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --open",
+    "serve": "vite preview",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^2.9.5"
+  },
+  "dependencies": {
+    "strvejs": "^4.3.0"
+  }
+}
