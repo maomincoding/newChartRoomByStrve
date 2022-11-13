@@ -111,7 +111,7 @@ li{
 	width: 60px;
 	height: 60px;
 	line-height: 60px;
-	border-radius: 50%;
+	border-radius: 10px;
 	text-align: center;
 	animation: user-op .2s ease-in-out;
 }
