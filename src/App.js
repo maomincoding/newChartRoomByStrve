@@ -1,4 +1,4 @@
-import { domInfo, h, setData, onMounted } from 'strvejs';
+import { domInfo, setData, onMounted } from 'strve-js';
 import './style/app.css';
 
 let socket = null;
@@ -12,56 +12,49 @@ const data = {
 	textValue: '',
 	chatbox: null,
 	textValueDom: null,
+	showStyle: 'display:none;',
 };
 
 function App() {
-	return h/*html*/ `
-    <div class="home">
-        <div class="content">
-            <ul $key="chatBox" class="chat-box">
-            ${data.chatArr.map(
-							(item) => h/*html*/ `
-                    <li  class="chat-item">
-                    ${
-											item.name === name
-												? h/*html*/ `
-                            <div class="chat-msg mine">
-                                <p class="msg mineBg msg-m">${item.txt}</p>
-                                <p class="user" style="background: ${bg}">
-                                    ${useName(item.name)}
-                                </p>
-                            </div>`
-												: h/*html*/ `
-                            <div  class="chat-msg other">
-                                <p class="user" style="background:${
-																	item.bg
-																}" $key>
-                                ${useName(item.name)}
-                                </p>
-                                <p class="msg otherBg msg-o" $key>${
-																	item.txt
-																}</p>
-                            </div>
-                    `
-										}
-                    </li>`
-						)}
-            </ul>
-        </div>
-        <div class="footer">
-            <textarea
-                id="textValue"
-                $key="textValueDom"
-                placeholder="说点什么..."
-                autofocus
-                onChange=${onTextValue}
-            ></textarea>
-            <div class="send-box">
-                <p class="send active" onClick=${send}>发送</p>
-            </div>
-        </div>
-    </div>
-    `;
+	return html`
+		<div class="home" style="${data.showStyle}" $key>
+			<div class="content">
+				<ul $key="chatBox" class="chat-box">
+					${data.chatArr.map(
+						(item) => html`<li class="chat-item">
+							${item.name === name
+								? html` <div class="chat-msg mine">
+										<p class="msg mineBg msg-m">${item.txt}</p>
+										<p class="user" style="background: ${bg}">
+											${useName(item.name)}
+										</p>
+								  </div>`
+								: html`
+										<div class="chat-msg other">
+											<p class="user" style="background:${item.bg}" $key>
+												${useName(item.name)}
+											</p>
+											<p class="msg otherBg msg-o" $key>${item.txt}</p>
+										</div>
+								  `}
+						</li>`
+					)}
+				</ul>
+			</div>
+			<div class="footer">
+				<input
+					id="textValue"
+					$key="textValueDom"
+					placeholder="说点什么..."
+					autofocus
+					onChange=${onTextValue}
+				/>
+				<div class="send-box">
+					<p class="send active" onClick=${send}>发送</p>
+				</div>
+			</div>
+		</div>
+	`;
 }
 
 // 用户名
@@ -92,15 +85,18 @@ function init() {
 }
 
 function open() {
-	alert('服务连接成功');
+	setData(() => {
+		data.showStyle = 'display:block;';
+	});
+	alert('服务连接成功，可以开始聊天啦');
 }
 
 function error() {
-	alert('连接错误');
+	alert('服务连接错误！');
 }
 
 function closed() {
-	alert('服务关闭');
+	alert('服务连接关闭，请重新进入应用');
 }
 
 // 监听信息
@@ -134,6 +130,12 @@ function send() {
 }
 
 init();
+
+document.addEventListener('keyup', (event) => {
+	if (event.key == 'Enter') {
+		send();
+	}
+});
 
 onMounted(() => {
 	data.textValueDom = domInfo.textValueDom;

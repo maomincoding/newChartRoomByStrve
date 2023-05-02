@@ -1,16 +1,19 @@
 {
-  "name": "my-chart-room",
-  "version": "2.4.0",
-  "license": "MIT",
-  "scripts": {
-    "dev": "vite --open",
-    "serve": "vite preview",
-    "build": "vite build"
-  },
-  "devDependencies": {
-    "vite": "^2.9.5"
-  },
-  "dependencies": {
-    "strvejs": "^4.3.0"
-  }
+	"name": "my-chart-room",
+	"version": "2.4.0",
+	"license": "MIT",
+	"scripts": {
+		"dev": "vite --open",
+		"serve": "vite preview",
+		"build": "vite build"
+	},
+	"devDependencies": {
+		"vite": "^2.9.5",
+		"@babel/core": "^7.20.7",
+		"babel-plugin-strve": "^1.0.0",
+		"vite-plugin-babel": "^1.1.2"
+	},
+	"dependencies": {
+		"strve-js": "^5.1.1"
+	}
 }
