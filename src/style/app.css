@@ -1,15 +1,15 @@
 html,
 body {
 	background-color: #e8e8e8;
-	user-select: none;  
+	user-select: none;
 }
 
-*{
+* {
 	margin: 0;
 	padding: 0;
 }
-li{
-    list-style: none;
+li {
+	list-style: none;
 }
 
 ::-webkit-scrollbar {
@@ -95,28 +95,28 @@ li{
 }
 .chat-box {
 	height: 88%;
-	padding:20px;
+	padding: 20px;
 	overflow-y: auto;
 }
 .chat-msg {
 	display: flex;
-    align-items: flex-start;
+	align-items: flex-start;
 }
 .user {
 	font-weight: bold;
 	color: #fff;
 	position: relative;
 	word-wrap: break-word;
-	box-shadow:  0 2px 12px 0 rgb(0 0 0 / 10%);
+	box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
 	width: 60px;
 	height: 60px;
 	line-height: 60px;
 	border-radius: 10px;
 	text-align: center;
-	animation: user-op .2s ease-in-out;
+	animation: user-op 0.2s ease-in-out;
 }
 .msg {
-    align-self: center;
+	align-self: center;
 	margin: 0 10px;
 	max-width: 60%;
 	white-space: normal;
@@ -126,21 +126,20 @@ li{
 	padding: 10px 14px;
 	text-align: justify;
 	font-size: 16px;
-	
 }
-.msg-m{
+.msg-m {
 	border-top-right-radius: 0;
-	animation: up-down .5s ease-in-out;
+	animation: up-down 0.5s ease-in-out;
 }
-.msg-o{
+.msg-o {
 	border-top-left-radius: 0;
-	animation: up-down-o .5s ease-in-out;
+	animation: up-down-o 0.5s ease-in-out;
 }
 .chat-item {
-	padding:20px 0;
+	padding: 20px 0;
 }
 
-@keyframes user-op{
+@keyframes user-op {
 	0% {
 		opacity: 0.5;
 	}

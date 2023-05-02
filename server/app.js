@@ -7,13 +7,13 @@ const server = ws.createServer((conn) => {
 		console.log(err);
 	});
 });
-server.listen(3000, function () {
+server.listen(3100, function () {
 	console.log('open');
 });
 // 群发消息
 function broadcast(data) {
 	server.connections.forEach((conn) => {
-        console.log(data);
+		console.log(data);
 		conn.sendText(data);
 	});
 }
