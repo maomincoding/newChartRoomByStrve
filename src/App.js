@@ -42,15 +42,17 @@ function App() {
 				</ul>
 			</div>
 			<div class="footer">
-				<input
-					id="textValue"
-					$key="textValueDom"
-					placeholder="说点什么..."
-					autofocus
-					onChange=${onTextValue}
-				/>
-				<div class="send-box">
-					<p class="send active" onClick=${send}>发送</p>
+				<div class="footer-inner">
+					<input
+						id="textValue"
+						$key="textValueDom"
+						placeholder="说点什么..."
+						autofocus
+						onChange=${onTextValue}
+					/>
+					<div class="send-box">
+						<p class="send active" onClick=${send}>发送</p>
+					</div>
 				</div>
 			</div>
 		</div>
